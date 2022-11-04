@@ -43,6 +43,6 @@ app.get("/test/:message", (req, res) => {
     res.send("hello. Test send");
 }); 
 
-http.listen(port, host, () =>
+http.listen(port, () =>
     console.log(`Listening on http://${host}:${port}/`)
 );
