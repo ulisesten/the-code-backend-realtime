@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 io.on("connection", (socket) => {
-    ///socket.emit("id", socket.id);
+    //socket.emit("id", socket.id);
 
     socket.on("suscribe", data => {
         socket.leave(data.prev_channel);
