@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 io.on("connection", (socket) => {
-    socket.emit("id", socket.id);
+    ///socket.emit("id", socket.id);
 
     socket.on("suscribe", data => {
         socket.leave(data.prev_channel);
@@ -29,11 +29,7 @@ io.on("connection", (socket) => {
 
 });
 
-app.get("/", (req, res) => res.send("Hello This is our Home Page"));
-
-app.post("/", (req, res) => {
-    io.emit("new-data", req.body.message);
-});
+app.get("/", (req, res) => res.send("Aquí irá la documentación"));
 
 app.get("/test/:message", (req, res) => {
 
@@ -41,7 +37,9 @@ app.get("/test/:message", (req, res) => {
 
     io.emit("message", data);
     res.send("hello. Test send");
-}); 
+
+});
+
 
 http.listen(port, () =>
     console.log(`Listening on http://${host}:${port}/`)
