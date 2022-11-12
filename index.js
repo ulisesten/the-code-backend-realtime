@@ -19,7 +19,8 @@ io.on("connection", (socket) => {
     socket.join("support");
 
     socket.on("suscribe", data => {
-        socket.leave(data.prev_channel);
+        if(data.prev_channel !== "support")
+            socket.leave(data.prev_channel);
         socket.join(data.channel);
     });
 
