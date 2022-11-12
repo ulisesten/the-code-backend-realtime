@@ -24,6 +24,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("message", data =>{
+        socket.to("support").emit("message", data);
         socket.to(data.channel).emit("message", data);
     });
 
